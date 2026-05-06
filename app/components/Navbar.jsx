@@ -12,19 +12,19 @@ const Navbar = () => {
 
 
   return (
-    <nav className="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50 px-6 py-4 border-b border-gray-100">
+    <nav className="bg-white/80 backdrop-blur-md shadow-sm sticky top-0 z-50 px-4 md:px-6 py-3 md:py-4 border-b border-gray-100">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Logo Section */}
-        <div className="flex items-center gap-3">
-          <Link href="/" className="flex items-center gap-3 text-2xl font-bold text-gray-800 hover:opacity-80 transition-opacity">
-            <img src="/nepal.png" alt="Made in Nepal" className="w-[50px] h-[50px] object-cover rounded-full shadow-sm" />
+        <div className="flex items-center gap-2 md:gap-3">
+          <Link href="/" className="flex items-center gap-2 md:gap-3 text-lg md:text-2xl font-bold text-gray-800 hover:opacity-80 transition-opacity">
+            <img src="/nepal.png" alt="Made in Nepal" className="w-8 h-8 md:w-[50px] md:h-[50px] object-cover rounded-full shadow-sm" />
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-red-600 to-orange-500 font-serif tracking-tight">
               MadeinNepal
             </span>
           </Link>
         </div>
 
-        {/* Navigation Links */}
+        {/* Navigation Links - Still hidden on mobile to save space, should probably add a mobile menu later */}
         <ul className="hidden md:flex items-center gap-10 text-sm font-medium text-gray-600">
           <li><Link href="/" className="hover:text-red-500 transition-colors duration-200">Home</Link></li>
           <li><Link href="/market" className="hover:text-red-500 transition-colors duration-200">Marketplace</Link></li>
@@ -33,17 +33,17 @@ const Navbar = () => {
 
 
         {/* Action Buttons */}
-        <div className="flex items-center gap-6">
-          <Link href="/register" className="hidden sm:block text-sm font-medium text-gray-600 hover:text-red-500 transition-colors duration-200">Sign up</Link>
-            <Link href="/sell" className="hidden sm:block text-sm font-medium text-gray-600 hover:text-red-500 transition-colors duration-200">Sell</Link>
+        <div className="flex items-center gap-3 md:gap-6">
+          <Link href="/sell" className="text-xs md:text-sm font-medium text-gray-600 hover:text-red-500 transition-colors duration-200">Login</Link>
+          <Link href="/register" className="text-xs md:text-sm font-medium text-gray-600 hover:text-red-500 transition-colors duration-200">Sell</Link>
           <Link href="/cart" className="flex items-center text-gray-600 hover:text-red-500 transition-colors duration-200 group">
             <div className="relative">
-              <svg className="w-6 h-6 mr-1" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
                 <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
               </svg>
               <span
                 key={cartCount}
-                className="absolute -top-1 -right-1 bg-red-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full group-hover:bg-orange-500 transition-colors"
+                className="absolute -top-1 -right-1 bg-red-500 text-white text-[8px] md:text-[10px] font-bold px-1 md:px-1.5 py-0.5 rounded-full group-hover:bg-orange-500 transition-colors"
               >
                 {cartCount}
               </span>
