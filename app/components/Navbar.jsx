@@ -34,8 +34,8 @@ const Navbar = () => {
 
         {/* Action Buttons */}
         <div className="flex items-center gap-3 md:gap-6">
-          <Link href="/sell" className="text-xs md:text-sm font-medium text-gray-600 hover:text-red-500 transition-colors duration-200">Login</Link>
-          <Link href="/register" className="text-xs md:text-sm font-medium text-gray-600 hover:text-red-500 transition-colors duration-200">Sell</Link>
+          <Link href="/sell" className="text-xs md:text-sm font-medium text-gray-600 hover:text-red-500 transition-colors duration-200">Sell</Link>
+          <Link href="/register" className="text-xs md:text-sm font-medium text-gray-600 hover:text-red-500 transition-colors duration-200">Register</Link>
           <Link href="/cart" className="flex items-center text-gray-600 hover:text-red-500 transition-colors duration-200 group">
             <div className="relative">
               <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
