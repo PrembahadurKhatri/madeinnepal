@@ -52,8 +52,10 @@ export default function Home() {
 
 
   return (
-    <div className="relative">
+    <div className="flex flex-col min-h-screen relative">
       <Navbar />
+
+      <main className="flex-grow">
 
       {/* Toast Notification */}
       {toast && (
@@ -115,7 +117,7 @@ export default function Home() {
             {/* Stat 1 */}
             <div className="flex flex-col items-center text-center group">
               <div className="w-16 h-16 rounded-2xl bg-red-50 flex items-center justify-center mb-4 transition-transform group-hover:-translate-y-1 group-hover:bg-red-100 group-hover:shadow-sm">
-                <img src="person.png" alt="products" className="w-8 h-8 object-contain opacity-80" />
+                <Image src="/person.png" alt="products" width={32} height={32} className="w-8 h-8 object-contain opacity-80" />
               </div>
               <h3 className="text-3xl sm:text-4xl font-bold text-gray-800 tracking-tight mb-1">{dbMakers.length}</h3>
               <p className="text-xs sm:text-sm font-bold text-gray-500 tracking-widest uppercase">Nepali Vendor</p>
@@ -142,7 +144,7 @@ export default function Home() {
             {/* Stat 4 */}
             <div className="flex flex-col items-center text-center group">
               <div className="w-16 h-16 rounded-2xl bg-rose-50 flex items-center justify-center mb-4 transition-transform group-hover:-translate-y-1 group-hover:bg-rose-100 group-hover:shadow-sm">
-                <img src="increase.png" alt="up" className="w-8 h-8 object-contain opacity-80" />
+                <Image src="/increase.png" alt="up" width={32} height={32} className="w-8 h-8 object-contain opacity-80" />
               </div>
               <h3 className="text-3xl sm:text-4xl font-bold text-gray-800 tracking-tight mb-1">99%</h3>
               <p className="text-xs sm:text-sm font-bold text-gray-500 tracking-widest uppercase">Happy Customers</p>
@@ -228,8 +230,16 @@ export default function Home() {
 
         {/* Products Grid */}
         {loading ? (
-          <div className="flex justify-center items-center py-20">
-            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-red-500"></div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+            {Array.from({ length: 4 }).map((_, i) => (
+              <div key={i} className="animate-pulse bg-white rounded-3xl border border-gray-100 h-96">
+                <div className="bg-gray-200 aspect-square rounded-t-3xl"></div>
+                <div className="p-6 space-y-4">
+                  <div className="h-4 bg-gray-200 w-3/4 rounded"></div>
+                  <div className="h-4 bg-gray-200 w-1/2 rounded"></div>
+                </div>
+              </div>
+            ))}
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -359,6 +369,7 @@ export default function Home() {
           ))}
         </div>
       </div>
+      </main>
       <Footer />
     </div>
   );

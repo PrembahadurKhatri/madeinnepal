@@ -4,6 +4,7 @@ import { useParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import Image from "next/image";
 import { useCart } from "../../context/CartContext";
 
 // ✅ Static Makers (fallback)
@@ -127,8 +128,14 @@ export default function ProvincePage() {
       {/* 🛍️ GRID */}
       <div className="max-w-7xl mx-auto px-5 pb-20 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 flex-1">
         {loading ? (
-          <div className="col-span-full text-center py-20 text-gray-400">
-            <p className="text-lg animate-pulse">Loading products...</p>
+          <div className="col-span-full grid grid-cols-2 md:grid-cols-4 gap-8">
+            {Array.from({ length: 8 }).map((_, i) => (
+              <div key={i} className="animate-pulse bg-white/60 p-4 rounded-2xl h-64">
+                <div className="bg-gray-200 h-40 rounded-xl mb-4"></div>
+                <div className="h-4 bg-gray-200 w-3/4 rounded mb-2"></div>
+                <div className="h-4 bg-gray-200 w-1/2 rounded"></div>
+              </div>
+            ))}
           </div>
         ) : filteredProducts.length === 0 ? (
           <div className="col-span-full text-center py-20">
@@ -144,13 +151,15 @@ export default function ProvincePage() {
                 className="group bg-white/60 backdrop-blur-xl border rounded-2xl shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 p-3"
               >
               {/* IMAGE */}
-              <div className="overflow-hidden rounded-xl relative">
-                <img
+              <div className="overflow-hidden rounded-xl relative h-40">
+                <Image
                   src={product.img}
-                  className="h-40 w-full object-cover group-hover:scale-110 transition duration-500"
+                  alt={product.name}
+                  fill
+                  className="object-cover group-hover:scale-110 transition duration-500"
                 />
                 {product.isDB && (
-                  <span className="absolute top-2 left-2 bg-green-500 text-white text-[10px] px-2 py-0.5 rounded-full font-bold">
+                  <span className="absolute top-2 left-2 z-10 bg-green-500 text-white text-[10px] px-2 py-0.5 rounded-full font-bold">
                     NEW
                   </span>
                 )}

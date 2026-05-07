@@ -2,7 +2,7 @@ import { connectDB } from "@/lib/mongodb";
 import Artisan from "@/models/Artisan";
 import Product from "@/models/Product";
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 60; // Revalidate every 60 seconds
 
 export async function GET() {
   await connectDB();

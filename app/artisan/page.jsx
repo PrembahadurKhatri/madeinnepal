@@ -3,6 +3,7 @@
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer';
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
 
 const page = () => {
@@ -24,10 +25,10 @@ const page = () => {
 
    
   return (
-    <div className="bg-gradient-to-b from-white via-gray-50 to-gray-100 min-h-screen">
+    <div className="flex flex-col min-h-screen bg-gradient-to-b from-white via-gray-50 to-gray-100">
       <Navbar />
 
-      <div className="p-6 md:p-14">
+      <main className="flex-grow p-6 md:p-14">
 
         {/* 🔥 HERO HEADER */}
         <div className="text-center mb-14">
@@ -45,7 +46,7 @@ const page = () => {
 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10">
 
   {loading
-    ? Array.from({ length: makers.length }).map((_, i) => (
+    ? Array.from({ length: 8 }).map((_, i) => (
         <div
           key={i}
           className="animate-pulse bg-white rounded-2xl overflow-hidden shadow-md border border-gray-100"
@@ -78,11 +79,13 @@ const page = () => {
           </span>
 
           {/* Image */}
-          <div className="h-48 bg-gray-100 flex items-center justify-center overflow-hidden relative z-10">
-            <img
+          <div className="h-48 bg-gray-100 flex items-center justify-center overflow-hidden relative z-10 p-4">
+            <Image
               src={maker.img}
               alt={maker.name}
-              className="max-h-full max-w-full object-contain group-hover:scale-110 transition duration-300"
+              width={200}
+              height={200}
+              className="max-h-full max-w-full object-contain group-hover:scale-110 transition duration-500"
             />
           </div>
 
@@ -109,7 +112,7 @@ const page = () => {
         </div>
       ))}
 </div>
-      </div>
+      </main>
 
       <Footer />
     </div>

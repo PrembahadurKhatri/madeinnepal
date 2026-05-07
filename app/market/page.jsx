@@ -3,6 +3,7 @@ import { useState,useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import Link from "next/link";
+import Image from "next/image";
 import { useCart } from "../context/CartContext";
 
 export const makers = [];
@@ -183,10 +184,12 @@ export default function MarketPage() {
                   className="group bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden flex flex-col"
                 >
                 {/* Product Image */}
-                <div className="h-48 bg-gray-50 overflow-hidden flex items-center justify-center relative">
-                  <img
+                <div className="h-48 bg-gray-50 overflow-hidden flex items-center justify-center relative p-4">
+                  <Image
                     src={product.img}
                     alt={product.name}
+                    width={200}
+                    height={200}
                     className="max-h-full max-w-full object-contain group-hover:scale-110 transition duration-300"
                   />
                 </div>
@@ -224,9 +227,11 @@ export default function MarketPage() {
                       href={`/artisan/${product.artisan}`}
                       className="flex items-center gap-2 mt-3 group/artisan"
                     >
-                      <img
+                      <Image
                         src={product.maker.img}
                         alt={product.maker.name}
+                        width={28}
+                        height={28}
                         className="w-7 h-7 rounded-full object-cover border-2 border-orange-100"
                       />
                       <div className="min-w-0">
